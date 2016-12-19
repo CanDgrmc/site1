@@ -1,5 +1,6 @@
 <div class="container-fluid well">
 	<?php 
+
 	foreach ($kategoriler as $kategori) {
 		$kategoriid= $kategori->kategori_id;
 		$kategoriadi=$kategori->kategori_adi;
@@ -14,7 +15,7 @@
 			$altkategoriadi=$altkategori->kategoriadi;
 			$esleme=$altkategori->kategori_id;
 		/* Kategori id  ilişik kategori id  */
-			
+			###############################################################################################
 		if ($kategoriid==$esleme) {
 			
 			echo '<a href="'.base_url().'/welcome/kDocs?k='.$altkategoriid.'"  class="list-group-item">';
@@ -25,5 +26,7 @@
 		}
 		echo '</div></div>';	
 	}
+
 	  ;?>
+	
 </div>

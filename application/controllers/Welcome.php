@@ -30,13 +30,27 @@ class Welcome extends CI_Controller {
 		$this->load->view('icerik_anasayfa');
 	}
 	public function Docs(){
+
 		$data['site_baslik']="Can Dgrmc";
 		$data['site_adi']= "Site Adı";
+		$ustk=$this->input->get('ustk');
+		$this->load->model('document_model');
+		$ustmakale=$this->document_model->ustDocs($ustk);
+		
+		
 		$this->load->model('kategoriler_model');
+
 		$data['kategoriler']=$this->kategoriler_model->kategoriler();
 		$data['altkategoriler']=$this->kategoriler_model->altkategoriler();
 		$this->load->view('navbar',$data);
-		$this->load->view('icerik_dokuman');
+		if (!empty($ustmakale)) {
+			$data['ustmakaleler']=$ustmakale;
+			$this->load->view('icerik_docs',$data);
+			
+		}
+		else  {
+			$this->load->view('icerik_dokuman');
+		}
 
 	}
 	public function kDocs(){
@@ -49,7 +63,7 @@ class Welcome extends CI_Controller {
 		$data['kategoriler']=$this->kategoriler_model->kategoriler();
 		$data['altkategoriler']=$this->kategoriler_model->altkategoriler();
 		$this->load->view('navbar',$data);
-		$this->load->view('header',$data);
+		
 		$this->load->view('icerik_docs',$data);
 
 
