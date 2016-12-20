@@ -1,7 +1,9 @@
 <div class="container-fluid">
 	<?php   
 	if (!empty($makaleler)) {
-		$postsay= count($makale);
+		# Sayfa Sayısı
+		$postsay= count($makaleler)/20;
+		$tamsayi=round($postsay);
 		
 		foreach ($makaleler as $makale) {
 			$baslik=$makale->baslik;

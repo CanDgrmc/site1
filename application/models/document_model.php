@@ -24,4 +24,14 @@ class document_model extends CI_Model
 		$query=$this->db->get();
 		return $query->result();
 	}
+	function allDocs(){
+		$query=$this->db->get('documents');
+		return $query->result();
+	}
+	function onayBekleyen(){
+		$this->db->from('documents');
+		$this->db->where('yayınlanma',0);
+		$query=$this->db->get();
+		return $query->result();
+	}
 }
