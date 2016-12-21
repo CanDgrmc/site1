@@ -34,4 +34,11 @@ class document_model extends CI_Model
 		$query=$this->db->get();
 		return $query->result();
 	}
+	function lastPosts(){
+		$this->db->from('documents');
+		$this->db->order_by('date','DESC');
+		$this->db->limit(3);
+		$query=$this->db->get();
+		return $query->result();
+	}
 }

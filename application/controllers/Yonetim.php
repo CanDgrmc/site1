@@ -21,6 +21,7 @@ class Yonetim extends CI_Controller {
 		$data['makaleler']=$this->document_model->allDocs();
 		$this->load->model('document_model');
 		$data['onay']=$this->document_model->onayBekleyen();
+		$data['lastPosts']=$this->document_model->lastPosts();
 		$this->load->model('message_model');
 		$data['mesajlar']=$this->message_model->mesajlar();
 		$this->load->view('yntm/yntheader');
@@ -38,7 +39,12 @@ class Yonetim extends CI_Controller {
 		$this->load->view('yntm/sidebar',$data);
 		$this->load->view('yntm/messages',$data);
 	}
-
+	function mesajSil(){
+		$sil=$this->input->get('id');
+		$this->load->model('message_model');
+		$this->message_model->mesajSil($sil);
+		redirect('Yonetim/mesajlar');
+	}
 	function postOnay(){
 		$this->load->model('document_model');
 		$data['makaleler']=$this->document_model->allDocs();
@@ -50,7 +56,23 @@ class Yonetim extends CI_Controller {
 		$this->load->view('yntm/sidebar',$data);
 		$this->load->view('yntm/makaleonay',$data);
 	}
-	
+	function read(){
+		$id=$this->input->get('id');
+		$this->load->model('message_model');
+		$this->message_model->okundu($id);
+		redirect('Yonetim/mesajlar');
+	}
+	function makaleler(){
+		$this->load->model('document_model');
+		$data['makaleler']=$this->document_model->allDocs();
+		$this->load->model('document_model');
+		$data['onay']=$this->document_model->onayBekleyen();
+		$this->load->model('message_model');
+		$data['mesajlar']=$this->message_model->mesajlar();
+		$this->load->view('yntm/yntheader');
+		$this->load->view('yntm/sidebar',$data);
+		$this->load->view('yntm/makaleler',$data);	
+	}
 
 
 }

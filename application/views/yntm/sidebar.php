@@ -1,32 +1,39 @@
 <div class="sidebar col-md-2 col-xs-3 well">
-	<h3>Yönetim Paneli</h3>
+	<img src="<?php echo base_url();?>icons/user-admin.png">
 	<ul class="list-group col-md-12">
 	<h5>Görünüm</h5>
-		<a href="<?php echo base_url();?>Yonetim/adminPanel" class="list-group-item" id="yonetim"><i class="glyphicon glyphicon-user"></i> Yönetici</a>
-		<a href="<?php echo base_url() ;?>" target="_blank" class="list-group-item"><i class="glyphicon glyphicon-triangle-right"></i> Frontend</a>
+		<a href="<?php echo base_url();?>Yonetim/adminPanel" class="list-group-item" id="yonetim"><i class="fa fa-user-circle-o"></i> Yönetici</a>
+		<a href="<?php echo base_url() ;?>" target="_blank" class="list-group-item"><i class="fa fa-television"></i> Frontend</a>
 	</ul>
 	<h5>Yönetim</h5>
 	<ul class="list-group">
-		<a href="#" class="list-group-item"><i class="glyphicon glyphicon-eye-open"></i> Kod Örnekleri</a>
-		<a href="#" class="list-group-item"><i class="glyphicon glyphicon-book"></i> Makaleler</a>
-		<a href="#" class="list-group-item"><i class="glyphicon glyphicon-wrench"></i> Üye İşlemleri</a>
-		<a href="" class="list-group-item"><i class="glyphicon glyphicon-folder-open"></i> Dosyalar</a>
+		<a href="#" class="list-group-item"><i class="fa fa-file-code-o"></i> Kod Örnekleri</a>
+		<a href="#" class="list-group-item"><i class="fa fa-archive"></i> Makaleler</a>
+		<a href="" class="list-group-item"><i class="glyphicon glyphicon-equalizer"></i> Kategoriler</a>
+		<a href="#" class="list-group-item"><i class="fa fa-address-card-o"></i> Üye İşlemleri</a>
+		<a href="" class="list-group-item"><i class="fa fa-folder-open"></i> Dosyalar</a>
 
 	</ul>
 	<h5>İletişim</h5>
 	<ul class="list-group">
 		<a href="<?php echo base_url();?>Yonetim/mesajlar" class="list-group-item" id="messages">Mesajlar <?php
 		if (! empty($mesajlar)) {
-			$mesajsayisi=count($mesajlar);
-			echo '<span class="badge">';
-			echo $mesajsayisi;
+			$say=0;
+			foreach ($mesajlar as $mesaj) {
+				$okundu=$mesaj->okundu;
+				if ($okundu==0) {
+					$say++;
+				}
+			}
+			echo '<span class="badge" style="background-color:#ff3131">';
+			echo $say;
 			echo '</span>';
 		}
 		;?></a>
-		<a href="<?php echo base_url();?>Yonetim/postOnay" class="list-group-item">Makale Onay <?php 
+		<a href="<?php echo base_url();?>Yonetim/postOnay" class="list-group-item">Makale Onay  <?php 
 		if (! empty($onay)) {
 			$onaybekleyen=count($onay) ;
-			echo '<span class="badge">';
+			echo '<span class="badge" >';
 			echo $onaybekleyen;
 			echo '</span>';
 		}
