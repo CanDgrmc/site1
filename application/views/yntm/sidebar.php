@@ -1,13 +1,13 @@
 <div class="sidebar col-md-2 col-xs-3 well">
-	<img src="<?php echo base_url();?>icons/user-admin.png">
+	<img src="<?php echo base_url();?>icons/logo.png">
 	<ul class="list-group col-md-12">
-	<h5>Görünüm</h5>
+	<h5>Görünüm <i class="fa fa fa-spinner fa-spin"></i></h5>
 		<a href="<?php echo base_url();?>Yonetim/adminPanel" class="list-group-item" id="yonetim"><i class="fa fa-user-circle-o"></i> Yönetici</a>
 		<a href="<?php echo base_url() ;?>" target="_blank" class="list-group-item"><i class="fa fa-television"></i> Frontend</a>
 	</ul>
-	<h5>Yönetim</h5>
+	<h5>Yönetim <i class="fa fa-cog fa-spin"></i></h5>
 	<ul class="list-group">
-		<a href="#" class="list-group-item"><i class="fa fa-file-code-o"></i> Kod Örnekleri</a>
+		<a href="#" class="list-group-item"><i class="fa fa-file-code-o" ></i> Kod Örnekleri</a>
 		<a href="#" class="list-group-item"><i class="fa fa-archive"></i> Makaleler</a>
 		<a href="" class="list-group-item"><i class="glyphicon glyphicon-equalizer"></i> Kategoriler</a>
 		<a href="#" class="list-group-item"><i class="fa fa-address-card-o"></i> Üye İşlemleri</a>

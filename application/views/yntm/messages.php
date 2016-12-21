@@ -4,8 +4,8 @@
 
 		<a href="#" class="dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img src="<?php echo base_url();?>icons/messages.png"> <span class="caret"></span></a>
 		<ul class="dropdown-menu " aria-labelledby="dropdownMenu" style="margin-top: -10px">
-		<li><a href="">Hepsini Sil</a></li>
-		<li><a href="">Hepsi Okundu</a></li>
+		<li><a href="<?php echo base_url();?>Yonetim/tumunuSil">Hepsini Sil</a></li>
+		<li><a href="<?php echo base_url();?>Yonetim/tumuOkundu">Hepsi Okundu</a></li>
 
 		</ul>
 	</div></div>

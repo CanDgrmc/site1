@@ -45,6 +45,16 @@ class Yonetim extends CI_Controller {
 		$this->message_model->mesajSil($sil);
 		redirect('Yonetim/mesajlar');
 	}
+	function tumunuSil(){
+		$this->load->model('message_model');
+		$this->message_model->tumunuSil();
+		redirect('Yonetim/mesajlar');
+	}
+	function tumuOkundu(){
+		$this->load->model('message_model');
+		$this->message_model->tumuOkundu();
+		redirect('Yonetim/mesajlar');
+	}
 	function postOnay(){
 		$this->load->model('document_model');
 		$data['makaleler']=$this->document_model->allDocs();
