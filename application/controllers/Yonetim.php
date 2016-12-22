@@ -62,6 +62,9 @@ class Yonetim extends CI_Controller {
 		$data['onay']=$this->document_model->onayBekleyen();
 		$this->load->model('message_model');
 		$data['mesajlar']=$this->message_model->mesajlar();
+		$this->load->model('kategoriler_model');
+		$data['kategoriler']=$this->kategoriler_model->kategoriler();
+		$data['altkategoriler']=$this->kategoriler_model->altkategoriler();
 		$this->load->view('yntm/yntheader');
 		$this->load->view('yntm/sidebar',$data);
 		$this->load->view('yntm/makaleonay',$data);
@@ -83,6 +86,19 @@ class Yonetim extends CI_Controller {
 		$this->load->view('yntm/sidebar',$data);
 		$this->load->view('yntm/makaleler',$data);	
 	}
+	function makaleSil(){
+		$id=$this->input->get('id');
+		$this->load->model('document_model');
+		$this->document_model->makaleSil($id);
+		redirect('Yonetim/postOnay');
+	}
+	function makaleOnay(){
+		$id=$this->input->get('id');
+		$this->load->model('document_model');
+		$this->document_model->makaleOnay($id);
+		redirect('Yonetim/postOnay');
+	}
+
 
 
 }

@@ -41,4 +41,13 @@ class document_model extends CI_Model
 		$query=$this->db->get();
 		return $query->result();
 	}
+	function makaleSil($id){
+		$data['id']=$id;
+		$this->db->delete('documents',$data);
+	}
+	function makaleOnay($id){
+		$this->db->where('id',$id);
+		$data['yayınlanma']=1;
+		$this->db->update('documents',$data);
+	}
 }

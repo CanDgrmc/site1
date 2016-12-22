@@ -33,7 +33,7 @@
 		<a href="<?php echo base_url();?>Yonetim/postOnay" class="list-group-item">Makale Onay  <?php 
 		if (! empty($onay)) {
 			$onaybekleyen=count($onay) ;
-			echo '<span class="badge" >';
+			echo '<span class="badge" style="background-color:#ff3131" >';
 			echo $onaybekleyen;
 			echo '</span>';
 		}
